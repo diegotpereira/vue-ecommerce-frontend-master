@@ -7,7 +7,12 @@
         <title>DTP Market Software</title>
 
         <!--Vue 3.0 CDN-->
-        <script src="https://unpkg.com/vue@3.0.2"></script>
+        <!-- <script src="https://unpkg.com/vue@3.0.2"></script> -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+        <!-- <script src="https://unpkg.com/vue@next"></script> -->
+        <!-- <script src="https://unpkg.com/vue@next"></script> -->
+        <script src="https://unpkg.com/vue"></script>
+        
 
         <!--Bootstrap 4 CDN-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -23,7 +28,7 @@
     <body>
         <h1 id="heading">DTP Software de Loja Virtual</h1>
         <div id="app" class="container">
-            <button type="button" v:on:click="addProdutoBotaoPressionado" class="btn btn-success add-btn">Novo Produto</button>
+            <button type="button" v-on:click="addProdutoBotaoPressionado" class="btn btn-success add-btn">Novo Produto</button>
             <form v-show="showAddForm">
                 <div class="form-group">
                     <label>Nome</label>

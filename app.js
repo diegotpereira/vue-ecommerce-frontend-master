@@ -3,10 +3,16 @@ const urlBuscarProduto = baseURL + "produto/";
 const urlAtualizarProduto = baseURL + "produto/atualizar";
 const urlAddProduto = baseURL + "produto/add"
 
-const { createApp, ref, computed } = Vue;
+// const { createApp, ref, computed } = Vue;
+// const { createApp, ref, computed } = Vue;
 
 
-const App = Vue.createApp({
+
+// const app = Vue.createApp({
+    // const app = createApp({
+   new Vue({      
+
+    el: '#app',
     data() {
         return {
             produtos: null,
@@ -48,7 +54,7 @@ const App = Vue.createApp({
             // a solicitação POST para API
             await fetch(urlAddProduto, {
                 method : "POST",
-                body : JSON.stringify(newProduct),
+                body : JSON.stringify(novoProduto),
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -118,4 +124,4 @@ const App = Vue.createApp({
     }
 });
 // app.mount("#app");
-createApp(App).mount("#app");
+// createApp(App).mount("#app");
