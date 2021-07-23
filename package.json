@@ -1,0 +1,24 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "Ecommerce Vue",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegotpereira/vue-ecommerce-frontend-master.git"
+  },
+  "keywords": [
+    "irg09351982"
+  ],
+  "author": "Diego Pereira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diegotpereira/vue-ecommerce-frontend-master/issues"
+  },
+  "homepage": "https://github.com/diegotpereira/vue-ecommerce-frontend-master#readme",
+  "dependencies": {}
+}

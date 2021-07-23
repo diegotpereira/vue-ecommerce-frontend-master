@@ -2,15 +2,23 @@ const baseURL = "http://remotedvs.org:8080/api/"
 const urlBuscarProduto = baseURL + "produto/";
 const urlAtualizarProduto = baseURL + "produto/atualizar";
 const urlAddProduto = baseURL + "produto/add"
+// import Vue from 'vue'
 
-const app = Vue.createApp({
+// const Vue = window.vue;
+// import { createApp } from "vue";
+// import App from "./App.vue";
+// import Vue from 'vue'
+const { createApp, ref, computed } = Vue;
+
+
+const App = Vue.createApp({
     data() {
         return {
             produtos: null,
             showAddForm: false,
 
             //campos para entradas de formulário
-            temNome: "",
+            tempNome: "",
             tempDescricao: "",
             tempPreco: "",
             tempImageURL: "",
@@ -19,7 +27,7 @@ const app = Vue.createApp({
 
     methods: {
         redefinirCamposEntrada: function() {
-            this.temNome="";
+            this.tempNome="";
             this.tempDescricao="";
             this.tempPreco="";
             this.tempImageURL="";
@@ -27,22 +35,27 @@ const app = Vue.createApp({
 
         //ADICIONE Funcionalidade do Produto
         addProdutoBotaoPressionado: function() {
-            this.showAddForm = false;
+            this.showAddForm = !this.showAddForm;
+            this.redefinirCamposEntrada();
+
+        },
+
+        addProduto: async function() {
 
             const novoProduto = {
                 id: this.produtos.length+1,
-                nome: this.temNome,
+                nome: this.tempNome,
                 descricao: this.tempDescricao,
                 preco: this.tempPreco,
-                imageURL: this.imageURL
+                imageURL: this.tempImageURL
             }
 
             // a solicitação POST para API
             await fetch(urlAddProduto, {
-                method: "POST",
-                body: JSON.stringify(novoProduto),
+                method : "POST",
+                body : JSON.stringify(newProduct),
                 headers: {
-                    'Content-Type':'application/json'
+                    'Content-Type': 'application/json'
                 }
             })
             .then((res) => {
@@ -60,7 +73,7 @@ const app = Vue.createApp({
             curProduto.showEditForm = !curProduto.showEditForm;
 
             // definindo os campos de entrada de acordo com o produto atual
-            this.temNome = curProduto.nome;
+            this.tempNome = curProduto.nome;
             this.tempDescricao = curProduto.descricao;
             this.tempPreco = curProduto.preco;
             this.tempImageURL = curProduto.imageURL;
@@ -73,7 +86,7 @@ const app = Vue.createApp({
             // Criando o novo produto
             const novoProduto = {
                 id: this.produtos[index].id,
-                nome: this.temNome,
+                nome: this.tempNome,
                 descricao: this.tempDescricao,
                 preco: this.tempPreco,
                 imageURL: this.tempImageURL
@@ -109,5 +122,5 @@ const app = Vue.createApp({
         }
     },
 });
-
-app.mount("#app");
+// app.mount("#app");
+createApp(App).mount("#app");

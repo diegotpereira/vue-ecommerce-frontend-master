@@ -23,7 +23,7 @@
     <body>
         <h1 id="heading">DTP Software de Loja Virtual</h1>
         <div id="app" class="container">
-            <button type="button" @click="addProdutoBotaoPressionado" class="btn btn-success add-btn">Novo Produto</button>
+            <button type="button" v:on:click="addProdutoBotaoPressionado" class="btn btn-success add-btn">Novo Produto</button>
             <form v-show="showAddForm">
                 <div class="form-group">
                     <label>Nome</label>
@@ -41,7 +41,7 @@
                     <label>Preço</label>
                     <input type="number" class="form-control" placeholder="Digite o preço" required v-model="tempPreco">
                 </div>
-                <button @click="addProduto" type="button" class="btn btn-primary">Enviar</button>
+                <button v-on:click="addProduto" type="button" class="btn btn-primary">Enviar</button>
             </form>
 
             <!--Display de Produtos-->
@@ -53,13 +53,13 @@
                             <img class="img-fluid" v-bind:src="produto.imageURL" alt="produto-image">
                         </div>
                         <div class="col-8">
-                            <button @click="editBotaoPressionado(index)" class="btn btn-primary edit_btn">
+                            <button v-on:click="editBotaoPressionado(index)" class="btn btn-primary edit_btn">
                                 <span v-if="!produto.showEditForm">Atualizar</span>
                                 <span v-else>Cancelar</span>
                             </button>
                             <h2 class="produto_nome">{{produto.nome}}</h2>
                             <h3 class="produto_descricao">{{produto.descricao}}</h3>
-                            <h3 class="produto_preco">{{produto.preco}}</h3>
+                            <h3 class="produto_preco"><span>R$</span>{{produto.preco}}</h3>
                             <button type="button" class="btn_compra btn btn-lg btn-outline-success">Compre agora</button>
                         </div>
                     </div>
@@ -83,12 +83,13 @@
                                 <label>Preço</label>
                                 <input type="number" class="form-control" placeholder="Digite o preço" required v-model="tempPreco">
                             </div>
-                            <button @click="editProduto" type="button" class="btn btn-primary">Enviar</button>
+                            <button v-on:click="editProduto" type="button" class="btn btn-primary">Enviar</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
         <script src="app.js"></script>
+        
     </body>
 </html>
