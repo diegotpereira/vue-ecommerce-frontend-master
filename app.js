@@ -1,13 +1,8 @@
-const baseURL = "http://remotedvs.org:8080/api/"
+const baseURL = "http://localhost:8080/api/"
 const urlBuscarProduto = baseURL + "produto/";
 const urlAtualizarProduto = baseURL + "produto/atualizar";
 const urlAddProduto = baseURL + "produto/add"
-// import Vue from 'vue'
 
-// const Vue = window.vue;
-// import { createApp } from "vue";
-// import App from "./App.vue";
-// import Vue from 'vue'
 const { createApp, ref, computed } = Vue;
 
 
@@ -21,7 +16,7 @@ const App = Vue.createApp({
             tempNome: "",
             tempDescricao: "",
             tempPreco: "",
-            tempImageURL: "",
+            tempImageURL: ""
         }
     },
 
@@ -41,7 +36,7 @@ const App = Vue.createApp({
         },
 
         addProduto: async function() {
-
+            this.showAddForm = false;
             const novoProduto = {
                 id: this.produtos.length+1,
                 nome: this.tempNome,
@@ -120,7 +115,7 @@ const App = Vue.createApp({
         for(produto of this.produtos) {
             produto.showEditForm = false;
         }
-    },
+    }
 });
 // app.mount("#app");
 createApp(App).mount("#app");
