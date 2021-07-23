@@ -18,7 +18,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;1,300;1,400&display=swap" rel="stylesheet">
         
         <!-- External Style sheet -->
-        <link rel="stylesheet" href="./styles.css"></link>
+        <link rel="stylesheet" href="./style.css"></link>
     </head>
     <body>
         <h1 id="heading">DTP Software de Loja Virtual</h1>
@@ -26,9 +26,68 @@
             <button type="button" @click="addProdutoBotaoPressionado" class="btn btn-success add-btn">Novo Produto</button>
             <form v-show="showAddForm">
                 <div class="form-group">
-                    
+                    <label>Nome</label>
+                    <input type="text" class="form-control" placeholder="Digite o nome" required v-model="tempNome">
                 </div>
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <input type="text" class="form-control" placeholder="Digite a descrição" required v-model="tempDescricao">
+                </div>
+                <div class="form-group">
+                    <label>Endereço de Imagem</label>
+                    <input type="url" class="form-control" placeholder="Adicione uma imagem" required v-model="tempImageURL">
+                </div>
+                <div class="form-group">
+                    <label>Preço</label>
+                    <input type="number" class="form-control" placeholder="Digite o preço" required v-model="tempPreco">
+                </div>
+                <button @click="addProduto" type="button" class="btn btn-primary">Enviar</button>
             </form>
+
+            <!--Display de Produtos-->
+            <div class="produtos_box" v-for="(produto, index) of produtos">
+                <div class="produto_item">
+                    <!--Detalhes do Produto-->
+                    <div class="row">
+                        <div class="col-4">
+                            <img class="img-fluid" v-bind:src="produto.imageURL" alt="produto-image">
+                        </div>
+                        <div class="col-8">
+                            <button @click="editBotaoPressionado(index)" class="btn btn-primary edit_btn">
+                                <span v-if="!produto.showEditForm">Atualizar</span>
+                                <span v-else>Cancelar</span>
+                            </button>
+                            <h2 class="produto_nome">{{produto.nome}}</h2>
+                            <h3 class="produto_descricao">{{produto.descricao}}</h3>
+                            <h3 class="produto_preco">{{produto.preco}}</h3>
+                            <button type="button" class="btn_compra btn btn-lg btn-outline-success">Compre agora</button>
+                        </div>
+                    </div>
+
+                    <!--Editar Form-->
+                    <div>
+                        <form v-show="produto.showEditForm">
+                            <div class="form-group">
+                                <label>Nome</label>
+                                <input type="text" class="form-control" placeholder="Digite o nome" required v-model="tempNome">
+                            </div>
+                            <div class="form-group">
+                                <label>Descrição</label>
+                                <input type="text" class="form-control" placeholder="Digite a descrição" required v-model="tempDescricao">
+                            </div>
+                            <div class="form-group">
+                                <label>Endereço de Imagem</label>
+                                <input type="url" class="form-control" placeholder="Adicione uma imagem" required v-model="tempImageURL">
+                            </div>
+                            <div class="form-group">
+                                <label>Preço</label>
+                                <input type="number" class="form-control" placeholder="Digite o preço" required v-model="tempPreco">
+                            </div>
+                            <button @click="editProduto" type="button" class="btn btn-primary">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="app.js"></script>
     </body>

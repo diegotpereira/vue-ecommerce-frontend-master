@@ -1,0 +1,66 @@
+html, body {
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 500;
+}
+
+#heading {
+    text-align: center;
+    font-family: 'courgette', cursive;
+    font-size: 100;
+    color: rgb(218, 216, 212);
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("https://entrepreneurhandbook.co.uk/wp-content/uploads/2020/05/eCommerce-shopping.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 180px 0;
+    margin-bottom: 20px;
+}
+
+img {
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.produto_item {
+    background-color: rgb(246, 241, 245);
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 10px 10px;
+}
+
+.produto_nome {
+    font-size: 40px;
+}
+
+.produto_nome:hover {
+    color: rgb(43, 107, 226);
+    font-size: 40px;
+}
+
+.produto_descricao {
+    font-size: 20px;
+}
+
+.produto_preco {
+    font-size: 20px;
+    font-weight: 500;
+    color: red;
+}
+
+.produto_preco span {
+    font-size: 15px;
+}
+
+.edit_btn {
+    float: right;
+    margin: 10px 10px 0 0;
+}
+
+.btn_compra {
+    margin-top: 68px;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
