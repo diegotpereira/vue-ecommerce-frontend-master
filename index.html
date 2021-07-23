@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>DTP Market Software</title>
+
+        <!--Vue 3.0 CDN-->
+        <script src="https://unpkg.com/vue@3.0.2"></script>
+
+        <!--Bootstrap 4 CDN-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <!-- Google fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;1,300;1,400&display=swap" rel="stylesheet">
+        
+        <!-- External Style sheet -->
+        <link rel="stylesheet" href="./styles.css"></link>
+    </head>
+    <body>
+        <h1 id="heading">DTP Software de Loja Virtual</h1>
+        <div id="app" class="container">
+            <button type="button" @click="addProdutoBotaoPressionado" class="btn btn-success add-btn">Novo Produto</button>
+            <form v-show="showAddForm">
+                <div class="form-group">
+                    
+                </div>
+            </form>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
